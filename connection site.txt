@@ -1,0 +1,138 @@
+http://www.srikanthtechnologies.com/blog/java/connecttomysql.aspx
+https://www.youtube.com/watch?v=CBKWoHGWTQE
+https://www.youtube.com/watch?v=ru2Mqs5AUuo
+https://www.youtube.com/watch?v=WIMojkwMTa0&t=50s
+
+
+package connection;
+
+import java.sql.*;
+import com.mysql.*;
+
+public class Connect {
+
+	public static void main(String[] args) throws Exception {
+		
+		
+		getConnection();
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static Connection getConnection() throws Exception{
+		try {
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("Loaded driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/mysql?user=root&password=1234");
+            System.out.println("Connected to MySQL");
+            con.close();
+     } 
+		catch(Exception e) { 
+			System.out.println(e);
+			}
+		
+		return null;	
+	}
+	
+	
+	
+
+}
+
+
+
+
+
+Not**
+Add Build path the item in folder
+
+
+
+SAmple syntax
+
+
+package connection;
+
+import java.sql.*;
+import com.mysql.*;
+
+public class Connect {
+
+	public static void main(String[] args) throws Exception {
+		
+		
+		getConnection();
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static Connection getConnection() throws Exception{
+		try {
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("Loaded driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/add(databasename)?user=root&password=1234");
+            System.out.println("Connected to MySQL");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from new_table");
+            while(rs.next()) {
+                System.out.println( rs.getString("name"));
+            }
+            st.close();
+            rs.close();
+            
+            con.close();
+     } 
+		catch(Exception e) { 
+			System.out.println(e);
+			}
+		
+		return null;	
+	}
+	
+	
+	
+
+}
+
+
+
+
+Insert
+
+
+  string Query1 = "insert into library_system.isbn (idisbn) values ('" + this.txtisbn.Text + "') ; ";
+                    MySqlConnection con1 = new MySqlConnection(constring);
+                    MySqlCommand cmd1 = new MySqlCommand(Query1, con1);
+                    MySqlDataReader reader1;
+                    try
+                    {
+                        con1.Open();
+                        reader1 = cmd1.ExecuteReader();
+                       // MessageBox.Show("Saved");
+                        while (reader1.Read())
+                        {
+
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+
+                    }
+
+
+Searching
+
+
+
+ MySqlConnection con = new MySqlConnection(constring);
+            MySqlDataAdapter ada = new MySqlDataAdapter();
+            con.Open();
+            ada = new MySqlDataAdapter("select * from other_item where item_name like '" + txtsearch.Text + "%'", con);
+            DataTable dbtab = new DataTable();
+            ada.Fill(dbtab);
+            dgbooks.DataSource = dbtab;
+            con.Close();
+
