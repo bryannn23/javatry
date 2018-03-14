@@ -107,3 +107,38 @@ public void exequeary(String query, String message)
 
 
 
+**CLASS USER
+
+
+package application;
+
+public class User {
+	
+	//private int id;
+	private String firstName;
+	private String lastName;
+	private String middleName;
+	
+	public User(String FirstName, String LastName, String MiddleName)
+	{
+		this.firstName = FirstName;
+		this.middleName = MiddleName;
+		this.lastName = LastName;
+	}
+	
+	public String getfn()
+	{
+		return firstName;
+	}
+	public String getmn()
+	{
+		return middleName;
+	}
+	public String getln()
+	{
+		return lastName;
+	}
+	
+	
+
+}s
