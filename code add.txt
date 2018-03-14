@@ -1,0 +1,109 @@
+package application;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+
+
+
+public class MainController {
+	
+	System.out.println ("Hello");
+	/*
+	public Button btnadd;
+	public TextField txtfn;
+	public TextField txtmn;
+	public TextField txtln;
+		public void handleButtonClick() {
+			
+			String query = "INSERT INTO `names` (`First_Name`, `Middle_Name`, `Last_Name`) VALUES ("+txtfn+","+txtmn+","+txtln+")";
+			
+		}
+	
+	
+	
+
+
+
+
+
+
+
+public Connection getConnection()
+{
+	Connection con;
+	try {
+        Class.forName("com.mysql.jdbc.Driver");
+        System.out.println("Loaded driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/add?user=root&password=1234");
+        return con;
+ } 
+	catch(Exception e) { 
+		System.out.println(e);
+		return null;	
+		}		
+}
+public ArrayList<User> usersList()
+{
+	ArrayList<User> userList = new ArrayList<User>();
+	
+	Connection conn = getConnection();
+	String query = "Select * from 'name' ";
+	Statement st;
+	ResultSet rs;
+	
+	try {
+		st = conn.createStatement();
+		rs = st.executeQuery(query);
+		User user;
+		while(rs.next())
+		{
+			user = new User(rs.getString("First_Name"),rs.getString("Middle_name"),rs.getString("Last_name"));
+			userList.add(user);
+		}
+		
+	} catch (Exception e)
+	{
+	e.printStackTrace();	
+	}
+	return userList;		
+	
+	
+}
+public void exequeary(String query, String message)
+{
+	Connection con = getConnection();
+	Statement st;
+	try {
+		st = con.createStatement();
+		if(st.executeUpdate(query) == 1)
+		{
+		JOptionPane.showMessageDialog(null, "Data" +message+"Success");	
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Data not" +message );	
+		}
+		
+	}catch (Exception ex)
+	{
+		ex.printStackTrace();
+	}
+}
+
+	*/
+	
+
+}
+
+
+
+
+
