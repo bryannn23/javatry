@@ -141,4 +141,113 @@ public class User {
 	
 	
 
-}s
+}
+
+//DIsplaying,Edit,delete,search
+
+
+**DisplayTable
+DefaultTableModel model = new DefaultTableModel(new String[]{"FirstName", "Middle_name", "last_Name"}, 0);
+
+
+String sql="SELECT * FROM user";
+ResultSet rs = st.executeQuery(sql);
+
+
+while(rs.next())
+{
+    String d = rs.getString("FirstName");
+    String e = rs.getString("Middle_name");
+    String f = rs.getString("last_Name");
+    model.addRow(new Object[]{d, e, f});
+}
+
+Mytable.setModel(model);
+
+
+
+
+**BTNSEARCH
+
+private void ButtonClick(java.awt.event.KeyEvent evt) (EVENT KEY){                                    
+
+  Connection conn = null;
+
+    String url = "jdbc:mysql://localhost:3306/";
+    String dbName = "add";
+    Statement stmt = null;
+    ResultSet result = null;
+    String driver = "com.mysql.jdbc.Driver";
+    String databaseUserName = "root";
+    String databasePassword = "root";
+    PreparedStatement pst = null;
+
+    try{
+    conn = DriverManager.getConnection(url + dbName, databaseUserName, databasePassword);
+    stmt = conn.createStatement();
+    System.out.println("Connected to the database.");
+    }catch(Exception e){
+        System.out.println("Failed to connect ot the database.");
+    }
+
+
+try{
+String sql = "SELECT lastname, firstname, middlename FROM users 
+              WHERE lastname or firstname or middlename LIKE '% " + txtsearch + " %' ";
+pst = conn.prepareStatement(sql);
+result = pst.executeQuery();
+myTable.setModel(DbUtils.resultSetToTableModel(result));
+}
+catch(Exception e){
+JOptionPane.showMessageDialog(null, e);
+}  
+}
+
+**Search button
+private void txtsearch (action)end keypress
+
+{
+ Connection conn = null;
+
+    String url = "jdbc:mysql://localhost:3306/";
+    String dbName = "add";
+    Statement stmt = null;
+    ResultSet result = null;
+    String driver = "com.mysql.jdbc.Driver";
+    String databaseUserName = "root";
+    String databasePassword = "root";
+    PreparedStatement pst = null;
+
+    try{
+    conn = DriverManager.getConnection(url + dbName, databaseUserName, databasePassword);
+    stmt = conn.createStatement();
+    System.out.println("Connected to the database.");
+    }catch(Exception e){
+        System.out.println("Failed to connect ot the database.");
+    }
+
+
+try{
+String sql = "SELECT lastname, firstname, middlename FROM users 
+              WHERE lastname or firstname or middlename LIKE '% " + txtsearch + " %' ";
+pst = conn.prepareStatement(sql);
+result = pst.executeQuery();
+myTable.setModel(DbUtils.resultSetToTableModel(result));
+}
+catch(Exception e){
+JOptionPane.showMessageDialog(null, e);
+}  
+
+}
+
+
+**BTN EDIT
+
+UPDATE `add`.`users` SET `firstname`='+txtfn+'`lastname`='+txtln+'`middlename`='+txtmn+' WHERE `firstname`='+txtfn+';
+
+
+**BTN Delete
+
+DELETE FROM `add`.`users` WHERE `firstname`='txtfn';
+
+
